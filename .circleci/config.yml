@@ -9,6 +9,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Start
+          command: ls ~/WorkDir
+      - run:
           name: Set permissions for WorkDir directory
           command: chmod -R 755 ~/WorkDir
       - run:
@@ -23,9 +26,6 @@ jobs:
       - run:
           name: Find package.json file
           command: find ~/WorkDir/project -name "package.json"
-      - run:
-          name: Simulate package installation
-          command: npm install --dry-run
       - run:
           name: Install packages
           command: npm install
