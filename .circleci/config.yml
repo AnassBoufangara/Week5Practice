@@ -3,26 +3,26 @@ orbs:
   node: circleci/node@4.7.0
 jobs:
   build:
-    working_directory: ~/project
+    working_directory: ~/WorkDir
     docker:
       - image: circleci/node:12.22.1-browsers
     steps:
       - checkout
       - run:
-          name: Set permissions for project directory
-          command: chmod -R 755 ~/project
+          name: Set permissions for WorkDir directory
+          command: chmod -R 755 ~/WorkDir
       - run:
           name: Print working directory
           command: pwd
       - run:
-          name: List files in project directory
-          command: ls ~/project
+          name: List files in WorkDir directory
+          command: ls ~/WorkDir
       - run:
-          name: List file permissions in project directory
-          command: ls -la ~/project
+          name: List file permissions in WorkDir directory
+          command: ls -la ~/WorkDir
       - run:
           name: Find package.json file
-          command: find ~/project -name "package.json"
+          command: find ~/WorkDir/project -name "package.json"
       - run:
           name: Simulate package installation
           command: npm install --dry-run
